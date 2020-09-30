@@ -8,7 +8,7 @@ const filiaisClientesController  = require("./filiaisClientesController");
 const situacoesAtualizacaoCadastroController  = require("./situacoesAtualizacaoCadastroController");
 const cpfClientesController  = require("./cpfClientesController");
 const clientesRendasObController  = require("./clientesRendasObController");
-const _4_Controller  = require("./clientesRendasAcController");
+const clientesRendasAcController  = require("./clientesRendasAcController");
 
 
 /**
@@ -20,7 +20,7 @@ const {
   situacoesAtualizacaoCadastroMapper,
   cpfClientesMapper,
   clientesRendasObMapper,
-  _4_Mapper,
+  clientesRendasAcMapper,
 
 } = require("../mappers");
 /**
@@ -32,7 +32,7 @@ const {
   situacoesAtualizacaoCadastroService,
   cpfClientesService,
   clientesRendasObService,
-  _4_Service
+  clientesRendasAcService
 } = require("../services");
 
 module.exports = {
@@ -74,11 +74,11 @@ module.exports = {
       clientesRendasObMapper
     ),
 
-    _4_Controller: (request) =>
-    _4_Controller(
+    clientesRendasAcController: (request) =>
+    clientesRendasAcController(
       request,
-      _4_Service,
+      clientesRendasAcService,
       getValueParam,
-      _4_Mapper
+      clientesRendasAcMapper
     ),
 };

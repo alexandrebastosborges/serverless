@@ -8,7 +8,7 @@ const { filiaisClientesServices } = require("./filiaisClientesService");
 const { situacoesAtualizacaoCadastroServices } = require("./situacoesAtualizacaoCadastroService");
 const { cpfClientesServices } = require("./cpfClientesService");
 const { clientesRendasObServices } = require("./clientesRendasObService");
-const { _4_Services } = require("./clientesRendasAcService");
+const { clientesRendasAcServices } = require("./clientesRendasAcService");
 
 module.exports = {
   adicionaisService: {
@@ -34,8 +34,8 @@ module.exports = {
     clientesRendasObServices(url, body, axios),
   },
 
-  _4_Service: {
-    _4_Services: (url, body) =>
-    _4_Services(url, body, axios),
+  clientesRendasAcService: {
+    clientesRendasAcServices: (url, body) =>
+    clientesRendasAcServices(url, body, axios),
   }
 };

@@ -7,7 +7,7 @@ const {
   situacoesAtualizacaoCadastroHandler,
   cpfClientesHandler,
   clientesRendasObHandler,
-  _4_Handler
+  clientesRendasAcHandler
 
 } = require("./handler");
 
@@ -20,7 +20,7 @@ const {
   situacoesAtualizacaoCadastroController,
   cpfClientesController,
   clientesRendasObController,
-  _4_Controller,
+  clientesRendasAcController,
 
  }= require("./controllers");
 
@@ -40,6 +40,6 @@ module.exports = {
   clientesRendasObHandler: (event, context) =>
   clientesRendasObHandler(event, context, clientesRendasObController),
 
-  _4_Handler: (event, context) =>
-  _4_Handler(event, context, _4_Controller),
+  clientesRendasAcHandler: (event, context) =>
+  clientesRendasAcHandler(event, context, clientesRendasAcController),
 };

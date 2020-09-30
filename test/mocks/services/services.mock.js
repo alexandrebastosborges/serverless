@@ -9,6 +9,11 @@ const axios = {
             response: "POST"
         };
       },
+    patch: () => {
+      return {
+          response: "PATCH"
+      };
+    },
     put: () => {
       return {
           response: "PUT"

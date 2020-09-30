@@ -2,24 +2,24 @@
 
 async function adicionaisHandler(event, _context, adicionaisController) {
   console.log(event);
-  const { headers, body, path }= event;
-  const response = adicionaisController({ headers, body, path });
+  const { headers, body, pathParameters }= event;
+  const response = adicionaisController({ headers, body, pathParameters });
   console.log(response);
   return response;
 }
 
 async function filiaisClientesHandler(event, _context, filiaisClientesController) {
   console.log(event);
-  const { headers, body, path }= event;
-  const response = filiaisClientesController({ headers, body, path });
+  const { headers, body, pathParameters }= event;
+  const response = filiaisClientesController({ headers, body, pathParameters });
   console.log(response);
   return response;
 }
 
 async function situacoesAtualizacaoCadastroHandler(event, _context, situacoesAtualizacaoCadastroController) {
   console.log(event);
-  const { headers, body, path }= event;
-  const response = situacoesAtualizacaoCadastroController({ headers, body, path });
+  const { headers, body, pathParameters }= event;
+  const response = situacoesAtualizacaoCadastroController({ headers, body, pathParameters });
   console.log(response);
   return response;
 }
@@ -27,24 +27,24 @@ async function situacoesAtualizacaoCadastroHandler(event, _context, situacoesAtu
 
 async function cpfClientesHandler(event, _context, cpfClientesController) {
   console.log(event);
-  const { headers, body, path }= event;
-  const response = cpfClientesController({ headers, body, path });
+  const { headers, body, pathParameters }= event;
+  const response = cpfClientesController({ headers, body, pathParameters });
   console.log(response);
   return response;
 }
 
 async function clientesRendasObHandler(event, _context, clientesRendasObController) {
   console.log(event);
-  const { headers, body, path }= event;
-  const response = clientesRendasObController({ headers, body, path });
+  const { headers, body, pathParameters }= event;
+  const response = clientesRendasObController({ headers, body, pathParameters });
   console.log(response);
   return response;
 }
 
-async function _4_Handler(event, _context, _4_Controller) {
+async function clientesRendasAcHandler(event, _context, clientesRendasAcController) {
   console.log(event);
-  const { headers, body, path }= event;
-  const response = _4_Controller({ headers, body, path });
+  const { headers, body, pathParameters }= event;
+  const response = clientesRendasAcController({ headers, body, pathParameters });
   console.log(response);
   return response;
 }
@@ -55,5 +55,5 @@ module.exports = {
   situacoesAtualizacaoCadastroHandler,
   cpfClientesHandler,
   clientesRendasObHandler,
-  _4_Handler
+  clientesRendasAcHandler
 };

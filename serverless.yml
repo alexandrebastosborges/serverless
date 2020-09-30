@@ -34,7 +34,7 @@ provider:
   stage: ${opt:stage}
   region: ${opt:region}
   deploymentBucket:
-    name: financeiro-emprestimos-${opt:stage}-app.${opt:region}.deploy-files
+    name: financeiro-clientes-${opt:stage}-app.${opt:region}.deploy-files
 # * Lambda function's IAM Role
   iamRoleStatements:
     - Effect: Allow
@@ -50,9 +50,9 @@ provider:
       'Fn::ImportValue': financeiro-clientes-APIID
     restApiResources:
       /financeiro/v1/clientes:
-        'Fn::ImportValue': v1FinanceiroClientesID
+        'Fn::ImportValue': v1-clientes-ID
       /financeiro/v1/clientes/{cpf}:
-        'Fn::ImportValue': v1FinanceiroClientesCpfID
+        'Fn::ImportValue': v1-clientes-cpf-ID
 
 # * Service wide environment variables
 # NOTE: Add the variables that you need

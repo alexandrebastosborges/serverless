@@ -2,7 +2,7 @@
 
 const { BACK_END_PARAMETERS } = require("../commons/constants");
 
-async function _4_(
+async function clientesRendasAc(
   request,
   eventosService,
   getValueParam,
@@ -13,7 +13,7 @@ async function _4_(
     const urlBackEnd = backEndObject.valueParam;
     console.log("aqui",  eventosService);
     console.log("aqui 2",  requestMapper);
-    const APIResponse = await eventosService._4_Services(urlBackEnd, request);
+    const APIResponse = await eventosService.clientesRendasAcServices(urlBackEnd, request);
     console.log("response", APIResponse );
     const response = requestMapper.toLambdaResponse(APIResponse);
     requestMapper.toResponseWithSecurityHeaders(response);
@@ -24,5 +24,5 @@ async function _4_(
   }
 }
 
-module.exports = _4_;
+module.exports = clientesRendasAc;
 
