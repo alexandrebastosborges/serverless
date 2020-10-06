@@ -49,11 +49,20 @@ async function clientesRendasAcHandler(event, _context, clientesRendasAcControll
   return response;
 }
 
+async function limitesHandler(event, _context, limitesController) {
+  console.log(event);
+  const { headers, body, pathParameters }= event;
+  const response = limitesController({ headers, body, pathParameters });
+  console.log(response);
+  return response;
+}
+
 module.exports = {
   adicionaisHandler,
   filiaisClientesHandler,
   situacoesAtualizacaoCadastroHandler,
   cpfClientesHandler,
   clientesRendasObHandler,
-  clientesRendasAcHandler
+  clientesRendasAcHandler,
+  limitesHandler
 };

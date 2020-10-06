@@ -100,7 +100,7 @@ functions:
           type: CUSTOM
     events:
       - http:
-          path: /financeiro/v1/clientes/empresas/{codigoEmpresa}/filiais/{codigoFilial}/clientes/{numeroCliente}/situacoes-atualizacao-cadastro
+        path: /financeiro/v1/clientes/empresas/{codigoEmpresa}/filiais/{codigoFilial}/clientes/{numeroCliente}/situacoes-atualizacao-cadastro
           method: get
           integration: lambda-proxy
           cors: true
@@ -140,6 +140,19 @@ functions:
     events:
       - http:
           path: /financeiro/v1/clientes/{cpf}/rendas
+          method: patch
+          integration: lambda-proxy
+          cors: true
+  limites:
+    handler: src/index.limitesHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/{cpf}/limites
           method: patch
           integration: lambda-proxy
           cors: true

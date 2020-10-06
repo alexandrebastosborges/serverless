@@ -8,7 +8,7 @@ const situacoesAtualizacaoCadastroMapper = require("./situacoesAtualizacaoCadast
 const cpfClientesMapper = require("./cpfClientesMapper");
 const clientesRendasObMapper = require("./clientesRendasObMapper");
 const clientesRendasAcMapper = require("./clientesRendasAcMapper");
-
+const clientesRendasAcMapper = require("./limitesMapper");
 
 module.exports = {
   adicionaisMapper,
@@ -16,5 +16,6 @@ module.exports = {
   situacoesAtualizacaoCadastroMapper,
   cpfClientesMapper,
   clientesRendasObMapper,
-  clientesRendasAcMapper
+  clientesRendasAcMapper,
+  limitesMapper
 }

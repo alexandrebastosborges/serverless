@@ -7,8 +7,8 @@ const {
   situacoesAtualizacaoCadastroHandler,
   cpfClientesHandler,
   clientesRendasObHandler,
-  clientesRendasAcHandler
-
+  clientesRendasAcHandler,
+  limitesHandler
 } = require("./handler");
 
 /**
@@ -21,7 +21,7 @@ const {
   cpfClientesController,
   clientesRendasObController,
   clientesRendasAcController,
-
+  limitesController
  }= require("./controllers");
 
 module.exports = {
@@ -42,4 +42,7 @@ module.exports = {
 
   clientesRendasAcHandler: (event, context) =>
   clientesRendasAcHandler(event, context, clientesRendasAcController),
+
+  limitesHandler: (event, context) =>
+  limitesHandler(event, context, limitesController),
 };

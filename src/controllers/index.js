@@ -1,5 +1,4 @@
 const { getValueParam } = require("../commons");
-
 /**
  * Controllers
  */
@@ -9,8 +8,7 @@ const situacoesAtualizacaoCadastroController  = require("./situacoesAtualizacaoC
 const cpfClientesController  = require("./cpfClientesController");
 const clientesRendasObController  = require("./clientesRendasObController");
 const clientesRendasAcController  = require("./clientesRendasAcController");
-
-
+const limitesController  = require("./limitesController");
 /**
  * Mappers
  */
@@ -21,7 +19,7 @@ const {
   cpfClientesMapper,
   clientesRendasObMapper,
   clientesRendasAcMapper,
-
+  limitesMapper
 } = require("../mappers");
 /**
  * Services
@@ -32,7 +30,8 @@ const {
   situacoesAtualizacaoCadastroService,
   cpfClientesService,
   clientesRendasObService,
-  clientesRendasAcService
+  clientesRendasAcService,
+  limitesService
 } = require("../services");
 
 module.exports = {
@@ -80,5 +79,13 @@ module.exports = {
       clientesRendasAcService,
       getValueParam,
       clientesRendasAcMapper
+    ),
+
+    limitesController: (request) =>
+    limitesController(
+      request,
+      limitesService,
+      getValueParam,
+      limitesMapper
     ),
 };

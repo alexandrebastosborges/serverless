@@ -1,0 +1,91 @@
+trigger:
+  - develop
+  - master
+
+pool:
+  name: Azure Pipelines
+  vmImage: 'ubuntu-latest'
+  demands: java
+
+steps:
+
+  - task: NodeTool@0
+    displayName: 'Use Node 12.x'
+    inputs:
+      versionSpec: 12.x
+
+  - task: Npm@1
+    displayName: 'npm install'
+    inputs:
+      verbose: false
+
+  - task: Npm@1
+    displayName: 'npm Install mocha'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'install -g mocha'
+
+  - task: Npm@1
+    displayName: 'npm install mocha-junit-reporter'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'install -g mocha-junit-reporter'
+
+  - bash: |
+      # Write your commands here
+
+      npm install -g serverless
+
+    displayName: 'Bash Script'
+    enabled: false
+
+  - script: |
+      npm test
+
+       mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST-RESULTS.xml
+
+    displayName: 'Unit Test'
+
+  - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    inputs:
+      testResultsFiles: '**/TEST-RESULTS.xml'
+
+  - task: SonarSource.sonarqube.15B84CA1-B62F-4A2A-A403-89B77A063157.SonarQubePrepare@4
+    displayName: 'Prepare analysis on SonarQube'
+    inputs:
+      SonarQube: 'Sonar IG'
+      scannerMode: CLI
+      configMode: manual
+      cliProjectKey: 'Riachuelo.midway.core.bancario.$(Build.Repository.Name)'
+      cliProjectName: 'Riachuelo.midway.core.bancario.$(Build.Repository.Name)'
+      extraProperties: |
+        # Additional properties that will be passed to the scanner,
+        # Put one key=value per line, example:
+        # sonar.exclusions=**/*.bin
+        sonar.exclusions=**/node_modules/**,**/coverage/**,**/test/**
+        sonar.javascript.lcov.reportPaths=coverage/lcov.info
+
+  - task: SonarSource.sonarqube.6D01813A-9589-4B15-8491-8164AEB38055.SonarQubeAnalyze@4
+    displayName: 'Run Code Analysis'
+
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish code coverage f'
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*cobertura-coverage.xml'
+      reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+
+  - task: CopyFiles@2
+    displayName: 'Copy Files to:  $(Build.ArtifactStagingDirectory)'
+    inputs:
+      TargetFolder: ' $(Build.ArtifactStagingDirectory)'
+
+  - task: PublishPipelineArtifact@1
+    displayName: 'Publish Pipeline Artifact'
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)'
+      artifact: deploy
+

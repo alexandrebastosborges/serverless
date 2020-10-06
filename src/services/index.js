@@ -9,6 +9,7 @@ const { situacoesAtualizacaoCadastroServices } = require("./situacoesAtualizacao
 const { cpfClientesServices } = require("./cpfClientesService");
 const { clientesRendasObServices } = require("./clientesRendasObService");
 const { clientesRendasAcServices } = require("./clientesRendasAcService");
+const { limitesServices } = require("./limitesService");
 
 module.exports = {
   adicionaisService: {
@@ -37,5 +38,10 @@ module.exports = {
   clientesRendasAcService: {
     clientesRendasAcServices: (url, body) =>
     clientesRendasAcServices(url, body, axios),
+  },
+
+  limitesService: {
+    limitesServices: (url, body) =>
+    limitesServices(url, body, axios),
   }
 };
