@@ -8,7 +8,7 @@ const situacoesAtualizacaoCadastroMapper = require("./situacoesAtualizacaoCadast
 const cpfClientesMapper = require("./cpfClientesMapper");
 const clientesRendasObMapper = require("./clientesRendasObMapper");
 const clientesRendasAcMapper = require("./clientesRendasAcMapper");
-const clientesRendasAcMapper = require("./limitesMapper");
+const limitesMapper = require("./limitesMapper");
 
 module.exports = {
   adicionaisMapper,
