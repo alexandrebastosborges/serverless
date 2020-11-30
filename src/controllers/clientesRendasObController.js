@@ -16,6 +16,7 @@ async function clientesRendasOb(
     const APIResponse = await eventosService.clientesRendasObServices(urlBackEnd, request);
     console.log("response", APIResponse );
     const response = requestMapper.toLambdaResponse(APIResponse);
+    response.headers = {};
     requestMapper.toResponseWithSecurityHeaders(response);
     return response;
   } catch (error) {

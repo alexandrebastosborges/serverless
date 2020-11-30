@@ -38,6 +38,12 @@
         "LogGroupName": "/aws/lambda/financeiro-clientes-dev-clientesRendasAc"
       }
     },
+    "LimitesLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/financeiro-clientes-dev-limites"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -143,7 +149,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
-          "S3Key": "serverless/financeiro-clientes/dev/1601414647491-2020-09-29T21:24:07.491Z/financeiro-clientes.zip"
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
         "FunctionName": "financeiro-clientes-dev-adicionais",
         "Handler": "src/index.adicionaisHandler",
@@ -177,14 +183,14 @@
         "AdicionaisLogGroup"
       ]
     },
-    "AdicionaisLambdaVersiongygLzCrs2bikUcpXu7c8eAdgSRtjozPLgRX6WJjJPu4": {
+    "AdicionaisLambdaVersiono57AUOH7LlFEoLImW1PQev0h6G81wP5FQmZQgE1neY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AdicionaisLambdaFunction"
         },
-        "CodeSha256": "oI6gSrMoGxQMWdEugo0CvcOyJDLcB/brZzdhWl6uKU0="
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
     "FiliaisDashclientesLambdaFunction": {
@@ -192,7 +198,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
-          "S3Key": "serverless/financeiro-clientes/dev/1601414647491-2020-09-29T21:24:07.491Z/financeiro-clientes.zip"
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
         "FunctionName": "financeiro-clientes-dev-filiais-clientes",
         "Handler": "src/index.filiaisClientesHandler",
@@ -226,14 +232,14 @@
         "FiliaisDashclientesLogGroup"
       ]
     },
-    "FiliaisDashclientesLambdaVersionMgZuKDGWVbIXRRjtBJUuWHUArZGQt9pxemB2ElnjMH0": {
+    "FiliaisDashclientesLambdaVersionBbpwI2R8S6dufgCYrDWeuMMeUpfVs5hc3CzukXwKS8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "FiliaisDashclientesLambdaFunction"
         },
-        "CodeSha256": "oI6gSrMoGxQMWdEugo0CvcOyJDLcB/brZzdhWl6uKU0="
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
     "SituacoesDashatualizacaoDashcadastroLambdaFunction": {
@@ -241,7 +247,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
-          "S3Key": "serverless/financeiro-clientes/dev/1601414647491-2020-09-29T21:24:07.491Z/financeiro-clientes.zip"
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
         "FunctionName": "financeiro-clientes-dev-situacoes-atualizacao-cadastro",
         "Handler": "src/index.situacoesAtualizacaoCadastroHandler",
@@ -275,14 +281,14 @@
         "SituacoesDashatualizacaoDashcadastroLogGroup"
       ]
     },
-    "SituacoesDashatualizacaoDashcadastroLambdaVersionw2rFlYfvH47mcQbnoQL3vvbq0Ek1bucceaIz2h5I": {
+    "SituacoesDashatualizacaoDashcadastroLambdaVersionnCUud5cx0MvckSGolrQKMxLWvKLXwDFuvHDS7ikM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SituacoesDashatualizacaoDashcadastroLambdaFunction"
         },
-        "CodeSha256": "oI6gSrMoGxQMWdEugo0CvcOyJDLcB/brZzdhWl6uKU0="
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
     "CpfClientesLambdaFunction": {
@@ -290,7 +296,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
-          "S3Key": "serverless/financeiro-clientes/dev/1601414647491-2020-09-29T21:24:07.491Z/financeiro-clientes.zip"
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
         "FunctionName": "financeiro-clientes-dev-cpfClientes",
         "Handler": "src/index.cpfClientesHandler",
@@ -324,14 +330,14 @@
         "CpfClientesLogGroup"
       ]
     },
-    "CpfClientesLambdaVersionfyM4IJy0LpPi3Eow9z5hOw9z5XYMjxKyRSezuSA29c": {
+    "CpfClientesLambdaVersionrg7EMfP3Q14j4e3OlJxJYoilIBczoZyDFYHP6Bnw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CpfClientesLambdaFunction"
         },
-        "CodeSha256": "oI6gSrMoGxQMWdEugo0CvcOyJDLcB/brZzdhWl6uKU0="
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
     "ClientesRendasObLambdaFunction": {
@@ -339,7 +345,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
-          "S3Key": "serverless/financeiro-clientes/dev/1601414647491-2020-09-29T21:24:07.491Z/financeiro-clientes.zip"
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
         "FunctionName": "financeiro-clientes-dev-clientesRendasOb",
         "Handler": "src/index.clientesRendasObHandler",
@@ -373,14 +379,14 @@
         "ClientesRendasObLogGroup"
       ]
     },
-    "ClientesRendasObLambdaVersionvmQJhFWGHIn7zHfEuKSWLBWJK0ARpZLegPYF3GXUUdE": {
+    "ClientesRendasObLambdaVersionpckjzvdI18jGHVwr3xgbGBGntSJfUSyxAoWmLSiGRE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ClientesRendasObLambdaFunction"
         },
-        "CodeSha256": "oI6gSrMoGxQMWdEugo0CvcOyJDLcB/brZzdhWl6uKU0="
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
     "ClientesRendasAcLambdaFunction": {
@@ -388,7 +394,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
-          "S3Key": "serverless/financeiro-clientes/dev/1601414647491-2020-09-29T21:24:07.491Z/financeiro-clientes.zip"
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
         "FunctionName": "financeiro-clientes-dev-clientesRendasAc",
         "Handler": "src/index.clientesRendasAcHandler",
@@ -422,26 +428,63 @@
         "ClientesRendasAcLogGroup"
       ]
     },
-    "ClientesRendasAcLambdaVersionZAoswmYIvR9HU3tAkaORd73hH8BoNOqfk7UiYaok": {
+    "ClientesRendasAcLambdaVersioneABr0dZxtExTaGPY27r4BhVnfyZnngf0ae270P4RdM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ClientesRendasAcLambdaFunction"
         },
-        "CodeSha256": "oI6gSrMoGxQMWdEugo0CvcOyJDLcB/brZzdhWl6uKU0="
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
-    "ApiGatewayResourceFinanceiroV1ClientesCpfVarAdicionais": {
-      "Type": "AWS::ApiGateway::Resource",
+    "LimitesLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
       "Properties": {
-        "ParentId": {
-          "Fn::ImportValue": "v1-clientes-cpf-ID"
+        "Code": {
+          "S3Bucket": "financeiro-clientes-dev-app.sa-east-1.deploy-files",
+          "S3Key": "serverless/financeiro-clientes/dev/1606749955839-2020-11-30T15:25:55.839Z/financeiro-clientes.zip"
         },
-        "PathPart": "adicionais",
-        "RestApiId": {
-          "Fn::ImportValue": "financeiro-clientes-APIID"
+        "FunctionName": "financeiro-clientes-dev-limites",
+        "Handler": "src/index.limitesHandler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 15,
+        "Environment": {
+          "Variables": {
+            "APIEXTERNAL": "https://google.com",
+            "REGION": "sa-east-1",
+            "TABLE_NAME": "EnvironmentParameters"
+          }
+        },
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-0f361ad175c9303a1"
+          ],
+          "SubnetIds": [
+            "subnet-0eba6dfb87116efce",
+            "subnet-054a538d53a08732a"
+          ]
         }
+      },
+      "DependsOn": [
+        "LimitesLogGroup"
+      ]
+    },
+    "LimitesLambdaVersionAAAAElCi6jwwp14QNtDLjDim2JLUnzjjyGFuaKI": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "LimitesLambdaFunction"
+        },
+        "CodeSha256": "weii6X7BGOs8OfiaF3ZIF9hiHbeiWr01a+fYFfIe+Ww="
       }
     },
     "ApiGatewayResourceFinanceiroV1ClientesCpfVarRendas": {
@@ -451,6 +494,42 @@
           "Fn::ImportValue": "v1-clientes-cpf-ID"
         },
         "PathPart": "rendas",
+        "RestApiId": {
+          "Fn::ImportValue": "financeiro-clientes-APIID"
+        }
+      }
+    },
+    "ApiGatewayResourceFinanceiroV1ClientesCpfVarLimites": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::ImportValue": "v1-clientes-cpf-ID"
+        },
+        "PathPart": "limites",
+        "RestApiId": {
+          "Fn::ImportValue": "financeiro-clientes-APIID"
+        }
+      }
+    },
+    "ApiGatewayResourceFinanceiroV1ClientesAdicionais": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::ImportValue": "v1-clientes-ID"
+        },
+        "PathPart": "adicionais",
+        "RestApiId": {
+          "Fn::ImportValue": "financeiro-clientes-APIID"
+        }
+      }
+    },
+    "ApiGatewayResourceFinanceiroV1ClientesAdicionaisCpfVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceFinanceiroV1ClientesAdicionais"
+        },
+        "PathPart": "{cpf}",
         "RestApiId": {
           "Fn::ImportValue": "financeiro-clientes-APIID"
         }
@@ -540,7 +619,7 @@
         }
       }
     },
-    "ApiGatewayMethodFinanceiroV1ClientesCpfVarAdicionaisOptions": {
+    "ApiGatewayMethodFinanceiroV1ClientesAdicionaisCpfVarOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -578,7 +657,7 @@
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceFinanceiroV1ClientesCpfVarAdicionais"
+          "Ref": "ApiGatewayResourceFinanceiroV1ClientesAdicionaisCpfVar"
         },
         "RestApiId": {
           "Fn::ImportValue": "financeiro-clientes-APIID"
@@ -765,13 +844,58 @@
         }
       }
     },
-    "ApiGatewayMethodFinanceiroV1ClientesCpfVarAdicionaisGet": {
+    "ApiGatewayMethodFinanceiroV1ClientesCpfVarLimitesOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'"
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceFinanceiroV1ClientesCpfVarLimites"
+        },
+        "RestApiId": {
+          "Fn::ImportValue": "financeiro-clientes-APIID"
+        }
+      }
+    },
+    "ApiGatewayMethodFinanceiroV1ClientesAdicionaisCpfVarGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceFinanceiroV1ClientesCpfVarAdicionais"
+          "Ref": "ApiGatewayResourceFinanceiroV1ClientesAdicionaisCpfVar"
         },
         "RestApiId": {
           "Fn::ImportValue": "financeiro-clientes-APIID"
@@ -1023,7 +1147,50 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1601414637566": {
+    "ApiGatewayMethodFinanceiroV1ClientesCpfVarLimitesPatch": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "PATCH",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceFinanceiroV1ClientesCpfVarLimites"
+        },
+        "RestApiId": {
+          "Fn::ImportValue": "financeiro-clientes-APIID"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "LimitesLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayDeployment1606749942646": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1032,17 +1199,19 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodFinanceiroV1ClientesCpfVarAdicionaisOptions",
+        "ApiGatewayMethodFinanceiroV1ClientesAdicionaisCpfVarOptions",
         "ApiGatewayMethodFinanceiroV1ClientesEmpresasCodigoempresaVarFiliaisCodigofilialVarClientesNumeroclienteVarOptions",
         "ApiGatewayMethodFinanceiroV1ClientesEmpresasCodigoempresaVarFiliaisCodigofilialVarClientesNumeroclienteVarSituacoesDashatualizacaoDashcadastroOptions",
         "ApiGatewayMethodFinanceiroV1ClientesCpfVarOptions",
         "ApiGatewayMethodFinanceiroV1ClientesCpfVarRendasOptions",
-        "ApiGatewayMethodFinanceiroV1ClientesCpfVarAdicionaisGet",
+        "ApiGatewayMethodFinanceiroV1ClientesCpfVarLimitesOptions",
+        "ApiGatewayMethodFinanceiroV1ClientesAdicionaisCpfVarGet",
         "ApiGatewayMethodFinanceiroV1ClientesEmpresasCodigoempresaVarFiliaisCodigofilialVarClientesNumeroclienteVarGet",
         "ApiGatewayMethodFinanceiroV1ClientesEmpresasCodigoempresaVarFiliaisCodigofilialVarClientesNumeroclienteVarSituacoesDashatualizacaoDashcadastroGet",
         "ApiGatewayMethodFinanceiroV1ClientesCpfVarGet",
         "ApiGatewayMethodFinanceiroV1ClientesCpfVarRendasGet",
-        "ApiGatewayMethodFinanceiroV1ClientesCpfVarRendasPatch"
+        "ApiGatewayMethodFinanceiroV1ClientesCpfVarRendasPatch",
+        "ApiGatewayMethodFinanceiroV1ClientesCpfVarLimitesPatch"
       ]
     },
     "AdicionaisLambdaPermissionApiGateway": {
@@ -1266,6 +1435,43 @@
           ]
         }
       }
+    },
+    "LimitesLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LimitesLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Fn::ImportValue": "financeiro-clientes-APIID"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
     }
   },
   "Outputs": {
@@ -1275,37 +1481,43 @@
     "AdicionaisLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AdicionaisLambdaVersiongygLzCrs2bikUcpXu7c8eAdgSRtjozPLgRX6WJjJPu4"
+        "Ref": "AdicionaisLambdaVersiono57AUOH7LlFEoLImW1PQev0h6G81wP5FQmZQgE1neY"
       }
     },
     "FiliaisDashclientesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "FiliaisDashclientesLambdaVersionMgZuKDGWVbIXRRjtBJUuWHUArZGQt9pxemB2ElnjMH0"
+        "Ref": "FiliaisDashclientesLambdaVersionBbpwI2R8S6dufgCYrDWeuMMeUpfVs5hc3CzukXwKS8"
       }
     },
     "SituacoesDashatualizacaoDashcadastroLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SituacoesDashatualizacaoDashcadastroLambdaVersionw2rFlYfvH47mcQbnoQL3vvbq0Ek1bucceaIz2h5I"
+        "Ref": "SituacoesDashatualizacaoDashcadastroLambdaVersionnCUud5cx0MvckSGolrQKMxLWvKLXwDFuvHDS7ikM"
       }
     },
     "CpfClientesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CpfClientesLambdaVersionfyM4IJy0LpPi3Eow9z5hOw9z5XYMjxKyRSezuSA29c"
+        "Ref": "CpfClientesLambdaVersionrg7EMfP3Q14j4e3OlJxJYoilIBczoZyDFYHP6Bnw"
       }
     },
     "ClientesRendasObLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ClientesRendasObLambdaVersionvmQJhFWGHIn7zHfEuKSWLBWJK0ARpZLegPYF3GXUUdE"
+        "Ref": "ClientesRendasObLambdaVersionpckjzvdI18jGHVwr3xgbGBGntSJfUSyxAoWmLSiGRE"
       }
     },
     "ClientesRendasAcLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ClientesRendasAcLambdaVersionZAoswmYIvR9HU3tAkaORd73hH8BoNOqfk7UiYaok"
+        "Ref": "ClientesRendasAcLambdaVersioneABr0dZxtExTaGPY27r4BhVnfyZnngf0ae270P4RdM"
+      }
+    },
+    "LimitesLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "LimitesLambdaVersionAAAAElCi6jwwp14QNtDLjDim2JLUnzjjyGFuaKI"
       }
     },
     "ServiceEndpoint": {

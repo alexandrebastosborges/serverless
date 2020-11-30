@@ -74,7 +74,7 @@ functions:
           type: CUSTOM
     events:
       - http:
-          path: /financeiro/v1/clientes/{cpf}/adicionais
+          path: /financeiro/v1/clientes/adicionais/{cpf}
           method: get
           integration: lambda-proxy
           cors: true
@@ -100,7 +100,7 @@ functions:
           type: CUSTOM
     events:
       - http:
-        path: /financeiro/v1/clientes/empresas/{codigoEmpresa}/filiais/{codigoFilial}/clientes/{numeroCliente}/situacoes-atualizacao-cadastro
+          path: /financeiro/v1/clientes/empresas/{codigoEmpresa}/filiais/{codigoFilial}/clientes/{numeroCliente}/situacoes-atualizacao-cadastro
           method: get
           integration: lambda-proxy
           cors: true
