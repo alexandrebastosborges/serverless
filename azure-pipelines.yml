@@ -8,7 +8,6 @@ pool:
   demands: java
 
 steps:
-
   - task: NodeTool@0
     displayName: 'Use Node 12.x'
     inputs:
@@ -68,6 +67,14 @@ steps:
         sonar.exclusions=**/node_modules/**,**/coverage/**,**/test/**
         sonar.javascript.lcov.reportPaths=coverage/lcov.info
 
+  - task: PowerShell@2
+    displayName: 'SetSonarBranch'
+    inputs:
+      targetType: 'inline'
+      script: |
+        $params = "$env:SONARQUBE_SCANNER_PARAMS" -replace '"sonar.branch.name":"[\w/,-.]*"\,?'
+        Write-Host "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
+
   - task: SonarSource.sonarqube.6D01813A-9589-4B15-8491-8164AEB38055.SonarQubeAnalyze@4
     displayName: 'Run Code Analysis'
 
@@ -88,4 +95,3 @@ steps:
     inputs:
       targetPath: '$(Build.ArtifactStagingDirectory)'
       artifact: deploy
-

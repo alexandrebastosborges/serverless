@@ -42,7 +42,7 @@ provider:
         - dynamodb:Query
         - dynamodb:Scan
         - dynamodb:GetItem
-      Resource: "arn:aws:dynamodb:${opt:region}:${opt:account}:table/${self:provider.environment.TABLE_NAME}"
+      Resource: 'arn:aws:dynamodb:${opt:region}:${opt:account}:table/${opt:table_name}'
 
 # * Lambda function's API Gateway
   apiGateway:
@@ -50,14 +50,11 @@ provider:
       'Fn::ImportValue': financeiro-clientes-APIID
     restApiResources:
       /financeiro/v1/clientes:
-        'Fn::ImportValue': v1-clientes-ID
-      /financeiro/v1/clientes/{cpf}:
-        'Fn::ImportValue': v1-clientes-cpf-ID
+        'Fn::ImportValue': v1-clientes-ID      
 
 # * Service wide environment variables
 # NOTE: Add the variables that you need
-  environment:
-    APIEXTERNAL: https://google.com
+  environment:   
     REGION: ${opt:region}
     TABLE_NAME: ${opt:table_name}
 
