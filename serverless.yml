@@ -1,0 +1,158 @@
+service: financeiro-clientes
+
+plugins:
+  - serverless-prune-plugin
+# ********************************************
+# Custom Parameter Data
+# ********************************************
+custom:
+  timeout: 15
+  prune:
+    automatic: true
+    number: 3
+  logSubscription:
+      enabled: true
+      filterName: ${self:service}-${opt:stage}
+      destinationArn: arn:aws:lambda:${opt:region}:${opt:account,''}:function:logs-to-elasticsearch-${opt:stage,''}-cloudwatch-logs-to-elasticsearch
+
+# ********************************************
+# AWS Configuration Data
+# ********************************************
+provider:
+  plugins:
+    - authorizer-arn-from-id-plugin
+  name: aws
+  runtime: nodejs12.x
+  vpc:
+      id:
+        - vpc-080e8d0137bca028d
+      securityGroupIds:
+        - sg-0f361ad175c9303a1
+      subnetIds:
+        - subnet-0eba6dfb87116efce
+        - subnet-054a538d53a08732a
+  stage: ${opt:stage}
+  region: ${opt:region}
+  deploymentBucket:
+    name: financeiro-clientes-${opt:stage}-app.${opt:region}.deploy-files
+# * Lambda function's IAM Role
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+      Resource: "arn:aws:dynamodb:${opt:region}:${opt:account}:table/${self:provider.environment.TABLE_NAME}"
+
+# * Lambda function's API Gateway
+  apiGateway:
+    restApiId:
+      'Fn::ImportValue': financeiro-clientes-APIID
+    restApiResources:
+      /financeiro/v1/clientes:
+        'Fn::ImportValue': v1-clientes-ID
+      /financeiro/v1/clientes/{cpf}:
+        'Fn::ImportValue': v1-clientes-cpf-ID
+
+# * Service wide environment variables
+# NOTE: Add the variables that you need
+  environment:
+    APIEXTERNAL: https://google.com
+    REGION: ${opt:region}
+    TABLE_NAME: ${opt:table_name}
+
+# ********************************************
+# Lambda function Definition
+# ********************************************
+functions:
+  adicionais:
+    handler: src/index.adicionaisHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/adicionais/{cpf}
+          method: get
+          integration: lambda-proxy
+          cors: true
+  filiais-clientes:
+    handler: src/index.filiaisClientesHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/empresas/{codigoEmpresa}/filiais/{codigoFilial}/clientes/{numeroCliente}
+          method: get
+          integration: lambda-proxy
+          cors: true
+  situacoes-atualizacao-cadastro:
+    handler: src/index.situacoesAtualizacaoCadastroHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/empresas/{codigoEmpresa}/filiais/{codigoFilial}/clientes/{numeroCliente}/situacoes-atualizacao-cadastro
+          method: get
+          integration: lambda-proxy
+          cors: true
+  cpfClientes:
+    handler: src/index.cpfClientesHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/{cpf}
+          method: get
+          integration: lambda-proxy
+          cors: true
+  clientesRendasOb:
+    handler: src/index.clientesRendasObHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/{cpf}/rendas
+          method: get
+          integration: lambda-proxy
+          cors: true
+  clientesRendasAc:
+    handler: src/index.clientesRendasAcHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/{cpf}/rendas
+          method: patch
+          integration: lambda-proxy
+          cors: true
+  limites:
+    handler: src/index.limitesHandler
+    timeout: ${self:custom.timeout}
+    authorizer:
+          authorizerId:
+            'Fn::ImportValue': MigracionApiIG
+          type: CUSTOM
+    events:
+      - http:
+          path: /financeiro/v1/clientes/{cpf}/limites
+          method: patch
+          integration: lambda-proxy
+          cors: true
