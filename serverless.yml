@@ -50,7 +50,7 @@ provider:
       'Fn::ImportValue': financeiro-clientes-APIID
     restApiResources:
       /financeiro/v1/clientes:
-        'Fn::ImportValue': v1-clientes-ID      
+        'Fn::ImportValue': v1-clientes-clientes-ID      
 
 # * Service wide environment variables
 # NOTE: Add the variables that you need
