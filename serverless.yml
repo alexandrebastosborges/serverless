@@ -24,13 +24,13 @@ provider:
   name: aws
   runtime: nodejs12.x
   vpc:
-      id:
-        - vpc-080e8d0137bca028d
-      securityGroupIds:
-        - sg-0f361ad175c9303a1
-      subnetIds:
-        - subnet-0eba6dfb87116efce
-        - subnet-054a538d53a08732a
+    id:
+      - ${opt:vpc_id}
+    securityGroupIds:
+      - ${opt:sg_id}
+    subnetIds:
+      - ${opt:sn_id_1}
+      - ${opt:sn_id_2}
   stage: ${opt:stage}
   region: ${opt:region}
   deploymentBucket:
