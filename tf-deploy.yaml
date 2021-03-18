@@ -1,0 +1,17 @@
+trigger: none
+
+resources:
+  repositories:
+    - repository: Pipelines
+      name: Hefesto/Hefesto.Core.Pipelines
+      type: git 
+      ref: refs/heads/civ-aws-tf
+      endpoint: HefestoPipelines
+      
+stages:
+  - template: /archetypes/lambda/module-ci.yml@Pipelines
+    parameters:
+      account: "financial"
+      environment: "uat"
+      lambda_name: "financeiro-clientes-uat-cpfClientes"
+      node_version: "12.x" #12.x, 10.x , python3.8..
