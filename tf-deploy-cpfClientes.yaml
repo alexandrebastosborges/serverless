@@ -1,4 +1,12 @@
 trigger: none
+parameters:
+  - name: environment
+    displayName: Environment
+    type: string
+    values:
+      - dev
+      - uat
+      - prod
 
 resources:
   repositories:
@@ -12,6 +20,6 @@ stages:
   - template: /archetypes/lambda/module-ci.yml@Pipelines
     parameters:
       account: "financial"
-      environment: "uat"
-      lambda_name: "financeiro-clientes-uat-cpfClientes"
+      environment: ${{ parameters.environment }}
+      lambda_name: "financeiro-clientes-${{ parameters.environment }}-cpfClientes"
       node_version: "12.x" #12.x, 10.x , python3.8..

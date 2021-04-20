@@ -1,0 +1,25 @@
+trigger: none
+parameters:
+  - name: environment
+    displayName: Environment
+    type: string
+    values:
+      - dev
+      - uat
+      - prod
+
+resources:
+  repositories:
+    - repository: Pipelines
+      name: Hefesto/Hefesto.Core.Pipelines
+      type: git 
+      ref: refs/heads/civ-aws-tf
+      endpoint: HefestoPipelines
+      
+stages:
+  - template: /archetypes/lambda/module-ci.yml@Pipelines
+    parameters:
+      account: "financial"
+      environment: ${{ parameters.environment }}
+      lambda_name: "financeiro-clientes-${{ parameters.environment }}-limites"
+      node_version: "12.x" #12.x, 10.x , python3.8..
