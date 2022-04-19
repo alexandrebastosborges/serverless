@@ -52,39 +52,6 @@ steps:
     inputs:
       testResultsFiles: '**/TEST-RESULTS.xml'
 
-  - task: SonarSource.sonarqube.15B84CA1-B62F-4A2A-A403-89B77A063157.SonarQubePrepare@4
-    displayName: 'Prepare analysis on SonarQube'
-    inputs:
-      SonarQube: 'Sonar IG'
-      scannerMode: CLI
-      configMode: manual
-      cliProjectKey: 'Riachuelo.midway.core.bancario.$(Build.Repository.Name)'
-      cliProjectName: 'Riachuelo.midway.core.bancario.$(Build.Repository.Name)'
-      extraProperties: |
-        # Additional properties that will be passed to the scanner,
-        # Put one key=value per line, example:
-        # sonar.exclusions=**/*.bin
-        sonar.exclusions=**/node_modules/**,**/coverage/**,**/test/**
-        sonar.javascript.lcov.reportPaths=coverage/lcov.info
-
-  - task: PowerShell@2
-    displayName: 'SetSonarBranch'
-    inputs:
-      targetType: 'inline'
-      script: |
-        $params = "$env:SONARQUBE_SCANNER_PARAMS" -replace '"sonar.branch.name":"[\w/,-.]*"\,?'
-        Write-Host "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
-
-  - task: SonarSource.sonarqube.6D01813A-9589-4B15-8491-8164AEB38055.SonarQubeAnalyze@4
-    displayName: 'Run Code Analysis'
-
-  - task: PublishCodeCoverageResults@1
-    displayName: 'Publish code coverage f'
-    inputs:
-      codeCoverageTool: Cobertura
-      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*cobertura-coverage.xml'
-      reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
-
   - task: CopyFiles@2
     displayName: 'Copy Files to:  $(Build.ArtifactStagingDirectory)'
     inputs:
